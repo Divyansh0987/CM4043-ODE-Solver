@@ -5,7 +5,6 @@
 import numpy as np
 from scipy.integrate import solve_ivp
 import matplotlib.pyplot as plt
-import math
 
 # Define the system of differential equations
 # A: BrO3-, X: HBrO2, Y: Br-, Z: Ce4+, yellow
