@@ -41,7 +41,7 @@ def plotGraph():
         canvas.draw()
         canvas.get_tk_widget().grid(row=5, column=1, padx=20, columnspan=8)
     except ValueError:
-        mb.showerror(title = "Invalid Input", message = "Please enter a value for all four compounds.")
+        mb.showerror(title = "Invalid Input", message = "Please enter a numeric value for all four compounds.")
     except AssertionError:
         mb.showerror(title = "Invalid Input", message = "Please enter a positive number.")
 
