@@ -30,9 +30,9 @@ def plotGraph():
         assert float(e1[1].get()) >= 0 and float(e2[1].get()) >= 0 and float(e3[1].get()) >= 0 and float(e4[1].get()) >= 0
 
         subplot.clear()
-        subplot.plot(solution.t, np.log10(solution.y[0]), label='log10(X)', color='blue')
-        subplot.plot(solution.t, np.log10(solution.y[1]), label='log10(Y)', color='green')
-        subplot.plot(solution.t, np.log10(solution.y[2]), label='log10(Z)', color='red')
+        subplot.plot(solution.t, np.log10(solution.y[0]), label='log10([HBrO2])', color='blue')
+        subplot.plot(solution.t, np.log10(solution.y[1]), label='log10([Br-])', color='green')
+        subplot.plot(solution.t, np.log10(solution.y[2]), label='log10([Ce4+])', color='red')
         subplot.set_xlabel('Time')
         subplot.set_ylabel('log10(Concentration)')
         subplot.legend()
