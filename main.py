@@ -25,7 +25,7 @@ figure = plt.Figure()
 subplot = figure.add_subplot(111)
 
 def plotGraph():
-    solution = solve_ivp(dimensionless_system, (0, 50), [e2[1].get(), e3[1].get(), e4[1].get()], args=(2, 3e6, 66, 3e3, 2, 0.2, 0.75), method='LSODA', t_eval=np.linspace(0, 50, 100000))
+    solution = solve_ivp(dimensionless_system, (0, 50), [e2[1].get(), e3[1].get(), e4[1].get()], args=(2, 3e6, 66, 3e3, 2, e1[1].get(), 0.75), method='LSODA', t_eval=np.linspace(0, 50, 100000))
 
     subplot.clear()
     subplot.plot(solution.t, np.log10(solution.y[0]), label='log10(X)', color='blue')
