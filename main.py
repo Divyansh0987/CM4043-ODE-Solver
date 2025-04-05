@@ -27,7 +27,10 @@ subplot = figure.add_subplot(111)
 def plotGraph():
     try:
         solution = solve_ivp(dimensionless_system, (0, 50), [float(e2[1].get()), float(e3[1].get()), float(e4[1].get())], args=(2, 3e6, 66, 3e3, 2, float(e1[1].get()), 0.75), method='LSODA', t_eval=np.linspace(0, 50, 100000))
+        assert float(e1[1].get()) >= 0 and float(e2[1].get()) >= 0 and float(e3[1].get()) >= 0 and float(e4[1].get()) >= 0
     except ValueError:
+        mb.showerror(title = "Invalid Input", message = "Please enter a value for all four compounds.")
+    except AssertionError:
         mb.showerror(title = "Invalid Input", message = "Please enter a positive number.")
 
     subplot.clear()
