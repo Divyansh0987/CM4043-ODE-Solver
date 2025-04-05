@@ -7,7 +7,7 @@ from scipy.integrate import solve_ivp
 import matplotlib.pyplot as plt
 
 # Define the system of differential equations
-# A: BrO3-, X: HBrO2, Y: Br-, Z: Ce4+, yellow
+# A: BrO3-, X: HBrO2, Y: Br-, Z: Fe3+, yellow
 def dimensionless_system(t, z_val, k1, k2, k3, k4, k5, A, h):
     x, y, z = z_val
 
