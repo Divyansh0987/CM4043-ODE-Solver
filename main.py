@@ -25,7 +25,10 @@ figure = plt.Figure()
 subplot = figure.add_subplot(111)
 
 def plotGraph():
-    solution = solve_ivp(dimensionless_system, (0, 50), [float(e2[1].get()), float(e3[1].get()), float(e4[1].get())], args=(2, 3e6, 66, 3e3, 2, float(e1[1].get()), 0.75), method='LSODA', t_eval=np.linspace(0, 50, 100000))
+    try:
+        solution = solve_ivp(dimensionless_system, (0, 50), [float(e2[1].get()), float(e3[1].get()), float(e4[1].get())], args=(2, 3e6, 66, 3e3, 2, float(e1[1].get()), 0.75), method='LSODA', t_eval=np.linspace(0, 50, 100000))
+    except ValueError:
+        mb.showerror(title = "Invalid Input", message = "Please enter a positive number.")
 
     subplot.clear()
     subplot.plot(solution.t, np.log10(solution.y[0]), label='log10(X)', color='blue')
