@@ -28,22 +28,22 @@ def plotGraph():
     try:
         solution = solve_ivp(dimensionless_system, (0, 50), [float(e2[1].get()), float(e3[1].get()), float(e4[1].get())], args=(2, 3e6, 66, 3e3, 2, float(e1[1].get()), 0.75), method='LSODA', t_eval=np.linspace(0, 50, 100000))
         assert float(e1[1].get()) >= 0 and float(e2[1].get()) >= 0 and float(e3[1].get()) >= 0 and float(e4[1].get()) >= 0
+
+        subplot.clear()
+        subplot.plot(solution.t, np.log10(solution.y[0]), label='log10(X)', color='blue')
+        subplot.plot(solution.t, np.log10(solution.y[1]), label='log10(Y)', color='green')
+        subplot.plot(solution.t, np.log10(solution.y[2]), label='log10(Z)', color='red')
+        subplot.set_xlabel('Time')
+        subplot.set_ylabel('log10(Concentration)')
+        subplot.legend()
+        
+        canvas = FigureCanvasTkAgg(figure, root)
+        canvas.draw()
+        canvas.get_tk_widget().grid(row=5, column=1, padx=20, columnspan=8)
     except ValueError:
         mb.showerror(title = "Invalid Input", message = "Please enter a value for all four compounds.")
     except AssertionError:
         mb.showerror(title = "Invalid Input", message = "Please enter a positive number.")
-
-    subplot.clear()
-    subplot.plot(solution.t, np.log10(solution.y[0]), label='log10(X)', color='blue')
-    subplot.plot(solution.t, np.log10(solution.y[1]), label='log10(Y)', color='green')
-    subplot.plot(solution.t, np.log10(solution.y[2]), label='log10(Z)', color='red')
-    subplot.set_xlabel('Time')
-    subplot.set_ylabel('log10(Concentration)')
-    subplot.legend()
-    
-    canvas = FigureCanvasTkAgg(figure, root)
-    canvas.draw()
-    canvas.get_tk_widget().grid(row=5, column=1, padx=20, columnspan=8)
 
 storeInitialValuesButton = ctk.CTkButton(root, text="Calculate", command=plotGraph)
 storeInitialValuesButton.grid(row=2, column=8)
