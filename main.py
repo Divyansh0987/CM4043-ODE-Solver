@@ -21,8 +21,8 @@ for i in range(1, 9):
 
 e1 = createEntry(root, "[BrO₃⁻]", 1, 1)
 e2 = createEntry(root, "[HBrO2]", 1, 3)
-e3 = createEntry(root, "[Br-]", 1, 7)
-e4 = createEntry(root, "[Fe3+]", 1, 5)
+e3 = createEntry(root, "[Br-]", 1, 5)
+e4 = createEntry(root, "[Fe3+]", 1, 7)
 
 figure = plt.Figure(figsize=(15, 8))
 subplot = figure.add_subplot(211)
