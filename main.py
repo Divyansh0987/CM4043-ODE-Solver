@@ -30,7 +30,7 @@ subplot2 = figure.add_subplot(212)
 
 def plotGraph():
     try:
-        solution = solve_ivp(dimensionless_system, (0, 50), [float(e2[1].get()), float(e3[1].get()), float(e4[1].get())], args=(1.28, 3e6, 33.6, 3e3, 1, float(e1[1].get()), 0.75), method='LSODA', t_eval=np.linspace(0, 50, 100000))
+        solution = solve_ivp(dimensionless_system, (0, 50), [float(e2[1].get()), float(e3[1].get()), float(e4[1].get())], args=(2   , 3e6, 42  , 3e3, 1, float(e1[1].get()), 0.75), method='LSODA', t_eval=np.linspace(0, 50, 100000))
         assert float(e1[1].get()) >= 0 and float(e2[1].get()) >= 0 and float(e3[1].get()) >= 0 and float(e4[1].get()) >= 0  
 
         subplot.clear()

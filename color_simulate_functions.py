@@ -15,8 +15,8 @@ def mixture_color(C_HBrO2, C_Br_, C_Fe3_, C_HBrO2_max, C_Br_max, C_Fe3_max):
         C_Fe2_ = C_Fe3_max - C_Fe3_
     else:
         C_Fe2_ = 1e-09
-    color_Br2 = (176, 72, 12)
-    color_Fe3_ = (255, 215, 77)
+    color_Br2 = (237, 104, 47)
+    color_Fe3_ = (255, 222, 144)
     color_Fe2_ = (135, 180, 210)
     color_with_conc = [ (color_Br2, C_Br2), 
                         (color_Fe3_, C_Fe3_), 
