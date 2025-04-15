@@ -74,7 +74,7 @@ def setParameterSet(parameterSet):
         k2[1].configure(textvariable=ctk.StringVar(value="2000000000"))
         k3[1].configure(textvariable=ctk.StringVar(value="10000"))
         k4[1].configure(textvariable=ctk.StringVar(value="40000000"))
-        k5[1].configure(textvariable=ctk.StringVar(value="0.017"))
+        k5[1].configure(textvariable=ctk.StringVar(value="0.6"))
 
 methodDropdown = ctk.CTkComboBox(root, values=methods, command=setMethod)
 methodDropdown.grid(row=12, column=1)
