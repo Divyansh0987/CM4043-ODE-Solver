@@ -16,8 +16,8 @@ def mixture_color(C_HBrO2, C_Br_, C_Fe3_, C_HBrO2_max, C_Br_max, C_Fe3_max):
     else:
         C_Fe2_ = 1e-09
     color_Br2 = (237, 104, 47)
-    color_Fe3_ = (255, 222, 144)
-    color_Fe2_ = (135, 180, 210)
+    color_Fe3_ = (135, 180, 210)
+    color_Fe2_ = (255, 127, 127)
     color_with_conc = [ (color_Br2, C_Br2), 
                         (color_Fe3_, C_Fe3_), 
                         (color_Fe2_, C_Fe2_)]
@@ -87,4 +87,3 @@ def plot_rgb_line_on_subplot(subplot, t, rgb_over_time):
     subplot.set_ylim(-1, 1)
     subplot.set_yticks([])
     subplot.set_xlabel("Time")
-    subplot.set_title("Colour of Solution Over Time")

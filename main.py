@@ -4,6 +4,7 @@ from functions import *
 from color_simulate_functions import *
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
+import matplotlib.gridspec as gridspec
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.patches import Rectangle
 from solver import dimensionless_system
@@ -25,8 +26,10 @@ e3 = createEntry(root, "[Br-]", 1, 5)
 e4 = createEntry(root, "[Fe3+]", 1, 7)
 
 figure = plt.Figure(figsize=(15, 8))
-subplot = figure.add_subplot(211)
-subplot2 = figure.add_subplot(212)
+gs = gridspec.GridSpec(2, 1, height_ratios=[2, 1])
+
+subplot = figure.add_subplot(gs[0])
+subplot2 = figure.add_subplot(gs[1])
 
 def plotGraph():
     try:
@@ -39,6 +42,7 @@ def plotGraph():
         subplot.plot(solution.t, np.log10(solution.y[2]), label='log10([Fe3+])', color='red')
         subplot.set_xlabel('Time')
         subplot.set_ylabel('log10(Concentration)')
+        subplot.set_xlim(0, max(solution.t))
         subplot.legend()
         mat_color_over_time = color_over_time_fxn(solution)
         
