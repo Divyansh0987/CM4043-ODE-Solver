@@ -103,7 +103,7 @@ canvas2 = FigureCanvasTkAgg(figure2, plot_frame2)
 def plotGraph():
     try:
         solution = solve_ivp(dimensionless_system, (0, 50), [float(e2[1].get()), float(e3[1].get()), float(e4[1].get())], args=(float(k1[1].get()), float(k2[1].get()), float(k3[1].get()), float(k4[1].get()), float(k5[1].get()), float(e1[1].get()), 0.75), method=currMethod, t_eval=np.linspace(0, 50, 100000))
-        print(float(e1[1].get()) >= 0 and float(e2[1].get()) >= 0 and float(e3[1].get()) >= 0 and float(e4[1].get()) >= 0 and float(k1[1].get()) >= 0 and float(k2[1].get()) >= 0 and float(k3[1].get()) >= 0 and float(k4[1].get()) >= 0 and float(k5[1].get()) >= 0)
+        #print(float(e1[1].get()) >= 0 and float(e2[1].get()) >= 0 and float(e3[1].get()) >= 0 and float(e4[1].get()) >= 0 and float(k1[1].get()) >= 0 and float(k2[1].get()) >= 0 and float(k3[1].get()) >= 0 and float(k4[1].get()) >= 0 and float(k5[1].get()) >= 0)
 
         subplot.clear()
         subplot2.clear()

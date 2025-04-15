@@ -1,5 +1,6 @@
 from matplotlib.collections import LineCollection
 import numpy as np
+import math
 
 # Export mixture color from concentration
 def mixture_color(C_HBrO2, C_Br_, C_Fe3_, C_HBrO2_max, C_Br_max, C_Fe3_max):
@@ -15,7 +16,7 @@ def mixture_color(C_HBrO2, C_Br_, C_Fe3_, C_HBrO2_max, C_Br_max, C_Fe3_max):
         C_Fe2_ = C_Fe3_max - C_Fe3_
     else:
         C_Fe2_ = 1e-09
-    color_Br2 = (237, 104, 47)
+    color_Br2 = (186,82,38)
     color_Fe3_ = (135, 180, 210)
     color_Fe2_ = (255, 127, 127)
     color_with_conc = [ (color_Br2, C_Br2), 
@@ -30,7 +31,7 @@ def color_over_time_fxn(solution):
     max_y = max(solution.y[1])
     max_z = max(solution.y[2])
     for xi, yi, zi in zip(*solution.y):  # x, y, z at each timepoint
-        mixed_rgb = mixture_color(float(xi), float(yi), float(zi), max_x, max_y, max_z)
+        mixed_rgb = mixture_color(float(xi), float(yi), 3*float(zi), max_x, max_y, max_z)
         mixed_colors_over_time.append(mixed_rgb)
     return mixed_colors_over_time
 
