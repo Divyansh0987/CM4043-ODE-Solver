@@ -92,18 +92,18 @@ plot_frame.grid(row=1, column=3, padx=20, pady=0, sticky="nsew", rowspan=6, colu
 plot_frame2 = ctk.CTkFrame(root, fg_color='')
 plot_frame2.grid(row=7, column=3, padx=20, pady=0, sticky="nsew", rowspan=6,  columnspan=3)
 
-figure = plt.Figure(figsize=(12, 3))
+figure = plt.Figure(figsize=(8, 3))
 subplot = figure.add_subplot(111)
 canvas = FigureCanvasTkAgg(figure, plot_frame)
 
-figure2 = plt.Figure(figsize=(12, 3))
+figure2 = plt.Figure(figsize=(8, 3))
 subplot2 = figure2.add_subplot(111)
 canvas2 = FigureCanvasTkAgg(figure2, plot_frame2)
 
 def plotGraph():
     try:
         solution = solve_ivp(dimensionless_system, (0, 50), [float(e2[1].get()), float(e3[1].get()), float(e4[1].get())], args=(float(k1[1].get()), float(k2[1].get()), float(k3[1].get()), float(k4[1].get()), float(k5[1].get()), float(e1[1].get()), 0.75), method=currMethod, t_eval=np.linspace(0, 50, 100000))
-        #print(float(e1[1].get()) >= 0 and float(e2[1].get()) >= 0 and float(e3[1].get()) >= 0 and float(e4[1].get()) >= 0 and float(k1[1].get()) >= 0 and float(k2[1].get()) >= 0 and float(k3[1].get()) >= 0 and float(k4[1].get()) >= 0 and float(k5[1].get()) >= 0)
+        # print(float(e1[1].get()) >= 0 and float(e2[1].get()) >= 0 and float(e3[1].get()) >= 0 and float(e4[1].get()) >= 0 and float(k1[1].get()) >= 0 and float(k2[1].get()) >= 0 and float(k3[1].get()) >= 0 and float(k4[1].get()) >= 0 and float(k5[1].get()) >= 0)
 
         subplot.clear()
         subplot2.clear()
@@ -112,6 +112,7 @@ def plotGraph():
         subplot.plot(solution.t, np.log10(solution.y[2]), label='log10([Fe3+])', color='red')
         subplot.set_xlabel('Time')
         subplot.set_ylabel('log10(Concentration)')
+        subplot.set_xlim(0, max(solution.t))
         subplot.legend()
 
         mat_color_over_time = color_over_time_fxn(solution)
